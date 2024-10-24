@@ -1,0 +1,20 @@
+package com.docker.producer.controller.dao;
+
+import java.sql.DriverManager;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class EmployeeDao {
+	
+	
+	public void connectToDB() {
+	
+		
+		DriverManager.getConnection("http://localhost:3306/bootdb", "root", "root");
+	}
+
+}

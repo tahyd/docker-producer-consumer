@@ -1,0 +1,4 @@
+FROM openjdk:17
+COPY ./target/consumer.jar consumer.jar
+EXPOSE 9091
+ENTRYPOINT [ "java","-jar","consumer.jar" ]

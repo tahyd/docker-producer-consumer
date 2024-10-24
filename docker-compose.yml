@@ -1,0 +1,31 @@
+#version: "3"
+services:
+  producer:
+    image: producer
+    container_name: producer
+    ports:
+      - "9090:9090"
+    
+    networks:
+      - producer-consumer
+    
+    depends_on:
+      - mysqldb
+ 
+  mysqldb:
+    image: mysql:8-debian
+    container_name: mysqldb
+    ports:
+      - "3306:3306"
+    
+    networks:
+      - producer-consumer
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bootdb  
+networks:
+  producer-consumer:
+    name: producer-consumer
+    external: true
+   
+    
